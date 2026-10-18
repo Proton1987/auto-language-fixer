@@ -64,7 +64,7 @@ Extension นี้ไม่เก็บ ไม่ส่ง และไม่�
 
 ## ไลเซนส์
 
-[MIT](LICENSE)
+[PolyForm Noncommercial 1.0.0](LICENSE) ใช้ แก้ไข และแจกต่อได้ฟรีสำหรับงานที่ไม่ใช่เชิงพาณิชย์ **ห้ามนำไปขายหรือใช้เพื่อการค้า** (ข้อความนี้เป็นเพียงสรุป ให้ยึดตามข้อความในไฟล์ LICENSE)
 
 ---
 
@@ -85,4 +85,4 @@ Fix text typed with the wrong keyboard layout (Thai ⇄ English) with one shortc
 
 **Limits:** does not work on the New Tab page, the address bar, `chrome://` pages, the Chrome Web Store, or canvas-based editors such as Google Docs.
 
-License: MIT
+License: [PolyForm Noncommercial 1.0.0](LICENSE). Free to use, modify and share for noncommercial purposes; selling it or using it commercially is not permitted.
