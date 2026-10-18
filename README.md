@@ -11,7 +11,7 @@
 - **ไทย → อังกฤษ และ อังกฤษ → ไทย** ตรวจทิศทางให้อัตโนมัติ
 - **แปลงคำล่าสุด ไฮไลต์ข้อความ ทั้งบรรทัด หรือทั้งช่อง** ตามที่เลือก
 - **กดซ้ำเพื่อสลับกลับได้** และ Ctrl+Z ย้อนกลับได้ตามปกติ
-- ใช้ได้กับ input, textarea และช่องพิมพ์แบบ contentEditable (Gmail, Facebook, ChatGPT ฯลฯ)
+- ใช้ได้กับ input, textarea และช่องพิมพ์แบบ contentEditable (Gmail, Facebook, ChatGPT, Canva ฯลฯ)
 - **แก้ Caps Lock ค้าง** เช่น `hELLO` → `Hello`
 - ข้ามช่องรหัสผ่านเป็นค่าเริ่มต้น
 - ไม่เก็บและไม่ส่งข้อมูลใดออกนอกเครื่อง
@@ -75,7 +75,7 @@ Fix text typed with the wrong keyboard layout (Thai ⇄ English) with one shortc
 - Both directions, detected automatically (Thai Kedmanee layout)
 - Converts the selection, or the last word / line / whole field (configurable)
 - Press again to toggle back; Ctrl+Z works
-- Works in inputs, textareas and contentEditable editors (Gmail, Facebook, ChatGPT, ...)
+- Works in inputs, textareas and contentEditable editors (Gmail, Facebook, ChatGPT, Canva, ...)
 - Fixes stuck Caps Lock (`hELLO` → `Hello`)
 - No data collected or sent anywhere
 
