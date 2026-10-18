@@ -24,10 +24,21 @@
 
   // Direction is chosen by the majority script of the whole text; only words
   // written in that source script are converted, others are left untouched.
-  function convertText(text) {
+  // opts.symbols: the user explicitly chose this text (selection / whole field), so
+  // letter-less tokens such as ";" (= ว) are converted too. Digit-only tokens never are.
+  function convertText(text, opts = {}) {
     const th = countMatches(text, THAI_G);
     const en = countMatches(text, LATIN_G);
-    if (!th && !en) return null;
+    if (!th && !en) {
+      if (!opts.symbols) return null;
+      let changed = false;
+      const out = text.replace(/\S+/g, (w) => {
+        if (/^\d+$/.test(w) || !Array.from(w).some((c) => EN_TO_TH[c] !== undefined)) return w;
+        changed = true;
+        return Array.from(w, (c) => (EN_TO_TH[c] !== undefined ? EN_TO_TH[c] : c)).join('');
+      });
+      return changed ? { text: out, dir: 'en2th' } : null;
+    }
     const toEn = th >= en;
 
     // Caps Lock left on: "hELLO" -> "Hello" (only when every Latin word fits the pattern)
@@ -111,7 +122,7 @@
       s = 0; e = v.length;
     }
 
-    const res = convertText(v.slice(s, e));
+    const res = convertText(v.slice(s, e), { symbols: hadSelection || mode === 'all' || !canSelect });
     if (!res) return null;
 
     const expected = v.slice(0, s) + res.text + v.slice(e);
@@ -162,6 +173,7 @@
     const sel = (root && root.getSelection ? root.getSelection() : null) || window.getSelection();
     if (!sel || !sel.rangeCount) return null;
     const range = sel.getRangeAt(0);
+    const explicit = !sel.isCollapsed || mode === 'all';
 
     let target;
     if (!sel.isCollapsed) {
@@ -176,7 +188,7 @@
 
     sel.removeAllRanges();
     sel.addRange(target);
-    const res = convertText(sel.toString());
+    const res = convertText(sel.toString(), { symbols: explicit });
     if (!res) { sel.removeAllRanges(); sel.addRange(range); return null; }
     if (!document.execCommand('insertText', false, res.text)) return null;
     return res;

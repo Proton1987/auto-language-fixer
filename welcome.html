@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <title>Auto Language Fixer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff; --surface: #f3f6fb; --text: #14213d; --muted: #5d6b82; --line: #dbe3ef;
+      --accent: #2056a6; --key-bg: #ffffff; --key-edge: #b9c6da; --gold: #ffcd40;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #12192a; --surface: #1b2438; --text: #eaf0fb; --muted: #9aa8c2; --line: #2b3752;
+        --accent: #5b94e6; --key-bg: #263250; --key-edge: #0d1424;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 40px 20px 56px; background: var(--bg); color: var(--text);
+      font: 16px/1.65 "Sarabun", "Noto Sans Thai", "Leelawadee UI", Tahoma, system-ui, sans-serif;
+    }
+    main { max-width: 600px; margin: 0 auto; }
+    header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    header img { width: 64px; height: 64px; border-radius: 16px; }
+    h1 { margin: 0; font-size: 26px; line-height: 1.2; }
+    header p { margin: 4px 0 0; color: var(--muted); }
+    section { margin-bottom: 18px; padding: 18px 20px; background: var(--surface); border-radius: 14px; }
+    h2 { margin: 0 0 10px; font-size: 17px; }
+    ol { margin: 0; padding-left: 22px; }
+    li { margin: 4px 0; }
+    kbd {
+      padding: 1px 9px; background: var(--key-bg); color: var(--text);
+      border: 1px solid var(--key-edge); border-bottom-width: 3px; border-radius: 7px;
+      font: 600 14px/1.6 system-ui, sans-serif; white-space: nowrap;
+    }
+    .demo { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 6px 0; font-size: 18px; }
+    .demo .wrong { color: var(--muted); }
+    .demo .arrow { color: var(--accent); font-weight: 700; }
+    .demo .right { font-weight: 700; }
+    .muted { color: var(--muted); font-size: 14px; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="icons/icon128.png" alt="">
+      <div>
+        <h1>ติดตั้ง Auto Language Fixer แล้ว</h1>
+        <p>แก้พิมพ์ผิดภาษาไทย-อังกฤษด้วยคีย์ลัดเดียว</p>
+      </div>
+    </header>
+
+    <section>
+      <h2>เริ่มใช้งาน</h2>
+      <ol>
+        <li>คลิกในช่องข้อความ แล้วพิมพ์ตามปกติ</li>
+        <li>ถ้าพิมพ์ผิดภาษา กด <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd> (Mac: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd>)</li>
+        <li>อยากแปลงทั้งช่อง กด <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Y</kbd> หรือไฮไลต์ข้อความก่อนกดคีย์ลัดเพื่อแปลงเฉพาะส่วนนั้น</li>
+        <li>กดซ้ำเพื่อสลับกลับได้ หรือคลิกขวาในช่องข้อความแล้วเลือก "แปลงภาษา"</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>ตัวอย่าง</h2>
+      <div class="demo"><span class="wrong">l;ylfu</span><span class="arrow">→</span><span class="right">สวัสดี</span></div>
+      <div class="demo"><span class="wrong">ไนพก</span><span class="arrow">→</span><span class="right">word</span></div>
+      <div class="demo"><span class="wrong">hELLO</span><span class="arrow">→</span><span class="right">Hello</span></div>
+    </section>
+
+    <section>
+      <h2>เคล็ดลับ</h2>
+      <ol>
+        <li>กดไอคอนรูปจิ๊กซอว์บนแถบเครื่องมือของ Chrome แล้วปักหมุด Auto Language Fixer ไว้ จะเปิดหน้าตั้งค่าได้สะดวก</li>
+        <li>ในหน้าตั้งค่าเลือกได้ว่าถ้าไม่ได้ไฮไลต์ จะแปลงคำล่าสุด ทั้งบรรทัด หรือทั้งช่อง และเปลี่ยนคีย์ลัดได้</li>
+        <li>อยากลองทันที เปิด <a href="https://www.google.com" target="_blank" rel="noopener">google.com</a> แล้วพิมพ์ผิดภาษาในช่องค้นหา</li>
+      </ol>
+    </section>
+
+    <p class="muted">ใช้ไม่ได้ในหน้า New Tab, address bar, หน้า chrome:// และตัวดู PDF (Chrome ไม่อนุญาตให้ extension เข้าถึง)
+      · ไม่เก็บและไม่ส่งข้อมูลที่คุณพิมพ์ออกนอกเครื่อง
+      · <a href="https://github.com/Proton1987/auto-language-fixer" target="_blank" rel="noopener">GitHub</a></p>
+  </main>
+</body>
+</html>

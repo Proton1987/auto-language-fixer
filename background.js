@@ -27,7 +27,7 @@ function flagUnsupported(tabId) {
   setTimeout(() => chrome.action.setBadgeText({ tabId, text: '' }), 2500);
 }
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener((details) => {
   chrome.contextMenus.removeAll(() => {
     chrome.contextMenus.create({
       id: MENU_ID,
@@ -35,6 +35,9 @@ chrome.runtime.onInstalled.addListener(() => {
       contexts: ['editable']
     });
   });
+  if (details.reason === 'install') {
+    chrome.tabs.create({ url: chrome.runtime.getURL('welcome.html') });
+  }
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
